@@ -30,6 +30,9 @@ Pbind(
 
 Env([0, 1, 0], [1, 1], \lin).plot;
 Env([0, 1, 0], [1, 1], \sine).plot;
+Env([0, 1, 0], [1, 1], \step).plot;
+Env([0, 1, 0], [1, 1], \hold).plot;
+
 Env([0, 1, 0], [1, 1], [1, 1]).plot;
 Env([0, 1, 0], [1, 1], [10, 10]).plot;
 Env([0, 1, 0], [1, 1], [10, -10]).plot;
@@ -42,11 +45,15 @@ Env([0, 1, 0], [1, 1], [10, 10]).test;
 Env([0, 1, 0], [1, 1], [10, -10]).test;
 Env([0, 1, 0], [1, 1], [-10, 10]).test;
 
-(
-{
-	SinOsc.ar(Env([400, 1200, 400], [1, 1], \lin).kr, 0, 0.1).dup
-}.play;
-)
+{ SinOsc.ar(Env([400, 1200, 400], [1, 1], \lin).kr(doneAction: 2, timeScale: 2), 0, 0.1).dup }.play;
+{ SinOsc.ar(Env([400, 1200, 400], [1, 1], \sine).kr(doneAction: 2, timeScale: 2), 0, 0.1).dup }.play;
+{ SinOsc.ar(Env([400, 1200, 400], [1, 1], [1, 1]).kr(doneAction: 2, timeScale: 2), 0, 0.1).dup }.play;
+{ SinOsc.ar(Env([400, 1200, 400], [1, 1], [10, 10]).kr(doneAction: 2, timeScale: 2), 0, 0.1).dup }.play;
+{ SinOsc.ar(Env([400, 1200, 400], [1, 1], [10, -10]).kr(doneAction: 2, timeScale: 2), 0, 0.1).dup }.play;
+{ SinOsc.ar(Env([400, 1200, 400], [1, 1], [-10, 10]).kr(doneAction: 2, timeScale: 2), 0, 0.1).dup }.play;
+{ SinOsc.ar(Env([400, 1200, 400], [1, 1], \step).kr(doneAction: 2, timeScale: 2), 0, 0.1).dup }.play;
+{ SinOsc.ar(Env([400, 1200, 400], [1, 1], \hold).kr(doneAction: 2, timeScale: 2), 0, 0.1).dup }.play;
+
 Env([0, 1, 0], [1, 1], \lin).test;
 Env([0, 1, 0], [1, 1], \sine).test;
 Env([0, 1, 0], [1, 1], [1, 1]).test;
